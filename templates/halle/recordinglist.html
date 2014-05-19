@@ -3,7 +3,7 @@
 {% endif %}
 {% block body %}
 {% if not request.args.get('ajax') %}
-<h2>Recordings</h2>
+<h2>Aufzeichnungen</h2>
 {% endif %}
 <ul class=episodes>
 	{% for ep in episodes %}
@@ -16,7 +16,7 @@
 		<div>
 	</a></li>
 	{% else %}
-	<li><em>No videos</em></li>
+	<li><em>Keine Videos</em></li>
 	{% endfor %}
 </ul>
 

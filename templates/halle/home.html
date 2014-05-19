@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-<h2>New Recordings</h2>
+<h2>Neue Aufzeichnungen</h2>
 <ul class=episodes>
 	{% for ep in new_episodes %}
 	<li style="background-color: #{{ ep.seriescolor }};"><a href="{{ url_for('episode', id=ep.id) }}">
@@ -16,7 +16,7 @@
 	{% endfor %}
 </ul>
 
-<h2>Random Picks</h2>
+<h2>Zufallsauswahl</h2>
 <ul class=episodes>
 	{% for ep in random_episodes %}
 	<li style="background-color: #{{ ep.seriescolor }};"><a href="{{ url_for('episode', id=ep.id) }}">
