@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>New Recordings</h2>
+<ul class=episodes>
+	{% for ep in new_episodes %}
+	<li style="background-color: #{{ ep.seriescolor }};"><a href="{{ url_for('episode', id=ep.id) }}">
+		<span><img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [''])[0] }}" /></span>
+		<div>
+			<h3>{{ ep.title }}</h3>
+			<p>{{ ', '.join(ep.creator) }}</p>
+			{{ ep.seriestitle }}
+		<div>
+	</a></li>
+	{% else %}
+	<li><em>Unbelievable.  No videos here so far</em></li>
+	{% endfor %}
+</ul>
+
+<h2>Random Picks</h2>
+<ul class=episodes>
+	{% for ep in random_episodes %}
+	<li style="background-color: #{{ ep.seriescolor }};"><a href="{{ url_for('episode', id=ep.id) }}">
+		<span><img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [''])[0] }}" /></span>
+		<div>
+			<h3>{{ ep.title }}</h3>
+			<p>{{ ', '.join(ep.creator) }}</p>
+			{{ ep.seriestitle }}
+		<div>
+	</a></li>
+	{% else %}
+	<li><em>Unbelievable.  No videos here so far</em></li>
+	{% endfor %}
+</ul>
+{% endblock %}

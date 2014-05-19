@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Lecture Series</h2>
+<ul class=series>
+	{% for s in series %}
+	<li style="background-color: #{{ s.color }};">
+		<a href="{{ url_for('series', id=s.id) }}">
+			<h3>{{ s.title }}</h3>
+			<dl>
+				<dt>Creator</dt>
+				<dd>{{ ', '.join(s.creator or []) }}
+				<dt>Contributor</dt>
+				<dd>{{ ', '.join(s.contributor or []) }}</dd>
+			</dl>
+			{% if s.description %}
+			<p>{{ s.description }}</p>
+			{% endif %}
+		</a>
+	</li>
+	{% else %}
+	<li><em>Unbelievable.  No series here so far</em></li>
+	{% endfor %}
+</ul>
+
+<ul class=pager>
+	{% for p in pages %}
+	<li>
+	{% if activepage == p %}
+	<a class=active href="{{ url_for('serieslist', page=p) }}">{{ p }}</a>
+	{%else%}
+	<a href="{{ url_for('serieslist', page=p) }}">{{ p }}</a>
+	{%endif%}
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
