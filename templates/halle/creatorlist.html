@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Dozenten</h2>
+
+<table class=searchresults>
+        {% for c in creators %}
+        <tr>
+                <td style="border-left: 8px solid #55FF00"><a href="{{ url_for('psearch', q=c.creator.replace(' ','&2B'), t='creator') }}"> {{ c.creator }}</a></td>
+        </tr>
+        {% else %}
+        <tr><td>No videos matching this query</td></tr>
+        {% endfor %}
+</table>
+{% endblock %}

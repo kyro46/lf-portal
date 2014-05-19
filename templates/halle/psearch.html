@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if activepage == 1 %}
+<h2>Serien</h2>
+<div class=series_compact>
+	{% for s in series %}
+	<a href="{{ url_for('series', id=s.id) }}" style="background-color: #{{ s.color }};">
+		<h3>{{ s.title }}</h3>
+		{% for c in s.creator %}
+		<span>{{ c }}</span>
+		{% endfor %}
+	</a>
+	{% else %}
+	<div><em>Keine passenden Serien gefunden</em></div>
+	{% endfor %}
+</div>
+{% endif %}
+{% endblock %}
