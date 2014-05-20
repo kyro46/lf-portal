@@ -210,6 +210,7 @@ def prepare_episode(data):
 			'seriescolor':color,
 			'seriestitle':seriestitle, 'img':img, 'player':player_html,
 			'creator':creator, 'contributor':contributor, 'date':date} )
+		episodes.sort(key=lambda item:item['date'], reverse=True)
 	return episodes
 
 
