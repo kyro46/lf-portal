@@ -4,17 +4,21 @@ body {
 }
 
 h1, h2, h3 {
-	color: #377BA8;
+	color: #666666;
+	font-weight:normal;
 }
 
+
 h1, h2 {
-	margin: 15px;
+	margin: 15px 15px 15px 35px;
 }
 
 h3 {
 	margin: 0;
 	font-size: 1.05em;
+	font-weight:bold;
 }
+
 
 a {
 	text-decoration: none;
@@ -22,7 +26,7 @@ a {
 
 .page {
 	margin: 2em auto;
-	width: 1100px;
+	width: 1030px;
 	border: 5px solid #ccc;
 	padding: 0em;
 	background: white;
@@ -30,17 +34,18 @@ a {
 
 .episodes {
 	list-style: none;
-	margin: 0;
+	margin: 0px 0px 0px 15px;
 	padding: 0;
 }
 
 .episodes li {
-	margin: 15px 35px;
+	margin: 15px 20px;
 	display: inline-block;
 	width: 290px;
+	min-height: 312px;
 	vertical-align: top;
 	font-size: smaller;
-}
+} 
 
 .episodes li * {
 	color: white;
@@ -100,21 +105,30 @@ a {
 .episodeview nav {
 	border: none;
 	display: block;
-	font-size: smaller;
+	font-size: normal;
 	background-color: white;
 	width: 100%;
-	margin: 0px;
 }
 
 .episodeview nav * {
 	display: inline-block;
-	padding: 10px;
+	padding: 0px 0px 0px 15px;
+	color: #666666;
+	margin: 0px;
+	font-weight: normal;
 }
 
 .episodeview h2 {
-	padding: 0px 20px;
-	margin: 0px;
 	margin-bottom: 25px;
+}
+
+.episodeview nav a {
+	padding: 0px;
+}
+
+.episodeview nav h4:hover {
+	background: #FFF;
+	color: #6ca200;
 }
 
 .episodeview iframe {
@@ -132,8 +146,9 @@ a {
 
 .infoblock {
 	margin: 0px;
-	padding: 0px 0px 35px 35px;
+	display:none;
 }
+
 
 .infoblock span {
 	display: inline-block;
@@ -153,11 +168,17 @@ nav {
 	width: 50%;
 	display: inline-block;
 	padding: 0px;
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
+	border-top: 2px solid #6ca200;
 	margin-bottom: 1em;
-	background: #fafafa;
 	vertical-align: bottom;
+}
+
+.navleft {
+	width:60%;
+}
+
+.navright {
+	width:40%;
 }
 
 nav a {
@@ -166,6 +187,10 @@ nav a {
 	margin: 0px;
 	border: none;
 	color: black;
+}
+
+nav a:first-child {
+	margin-left: 20px;	
 }
 
 nav form {
@@ -182,8 +207,10 @@ nav:nth-child(3) {
 	text-align: right;
 }
 
-nav a:hover {
-	background: #eee;
+nav a:hover, 
+nav a:active{
+	background: #6ca200;
+	color: #FFF;
 }
 
 .series_compact {
@@ -194,11 +221,11 @@ nav a:hover {
 }
 
 .series_compact a {
-	margin: 15px;
+	margin: 10px 20px 10px 20px;
 	padding: 10px;
 	display: inline-block;
 	vertical-align: top;
-	width: 300px;
+	width: 940px;
 }
 
 .series_compact * {
@@ -224,14 +251,15 @@ nav a:hover {
 }
 
 .series li {
-	margin: 15px;
+	margin: 10px 20px 10px 10px;;
 	padding: 20px;
 	vertical-align: top;
 	background-color: #eee;
 	display: inline-block;
-	width: 270px;
-	min-height: 200px;
+	width: 920px;
+	min-height: 90px;
 }
+
 
 .series li dt {
 	font-size: smaller;
@@ -280,6 +308,10 @@ footer a:hover {
 	color: #000;
 }
 
+.searchresults {
+	margin-left: 35px;
+}
+
 .searchresults tr:hover {
 	background-color: #dddddd;
 }
@@ -299,4 +331,37 @@ footer a:hover {
 
 .searchresults td span img {
 	width:    64px;
+}
+
+.serieslist {
+	margin-left: 35px;	
+}
+
+.serieslist td img {
+	width: 70px;	
+	margin: 2px 8px 2px 8px;	
+}
+
+.serieslist td:first-child {
+	width: 10%;
+}
+
+.serieslist a h3,
+.serieslist p {
+	font-weight: normal;
+	color: #000;
+	font-size: small;
+}
+
+.serieslist td:nth-child(2) {
+	width: 30%;
+}
+
+.serieslist td:nth-child(3) {
+	width: 60%;
+}
+
+.serieslist td:nth-child(3) a h3:hover {
+	background: #FFF;
+	color: #6ca200;
 }
