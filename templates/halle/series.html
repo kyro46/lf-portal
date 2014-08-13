@@ -1,28 +1,25 @@
-{% extends "layout.html" %}
+
+k{% extends "layout.html" %}
 {% block body %}
 
 <h2>{{ series.title }}</h2>
 <div class=infoblock>
-	{% for c in series.creator %}
-	<span>{{ c }}</span>
-	{% endfor %}
-	{% for c in series.contributor %}
-	<span>{{ c }}</span>
-	{% endfor %}
+        {% for c in series.creator %}
+        <span>{{ c }}</span>
+        {% endfor %}
+        {% for c in series.contributor %}
+        <span>{{ c }}</span>
+        {% endfor %}
 </div>
 
-<ul class=episodes>
-	{% for ep in episodes %}
-	<li style="background-color: #{{ ep.seriescolor }};"><a href="{{ url_for('episode', id=ep.id) }}">
-		<span><img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [''])[0] }}" /></span>
-		<div>
-			<h3>{{ ep.title }}</h3>
-			<p>{{ ', '.join(ep.creator) }}</p>
-			{{ ep.seriestitle }}
-		<div>
-	</a></li>
-	{% else %}
-	<li><em>Unbelievable. No videos here so far.</em></li>
-	{% endfor %}
-</ul>
+<table class=serieslist>
+        {% for ep in episodes %}
+    <tr>
+        <td style="border-left: 8px solid #{{ ep.seriescolor }}">
+        <a href="{{ url_for('episode', id=ep.id) }}"><img src="{{ (ep.img.get('p$
+        <td>{{ (ep['creator'] or [''])[0] }}</td>
+        <td><h3><a href="{{ url_for('episode', id=ep.id) }}">{{ ep.title }}</h3>$
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}
