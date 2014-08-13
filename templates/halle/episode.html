@@ -2,7 +2,7 @@
 {% block body %}
 <div class=episodeview>
         <nav>
-                <a href="{{ url_for('series', id=episode.series) }}"><h4>{{ epis$
+                <h4><a href="{{ url_for('series', id=episode.series) }}">{{ episode.seriestitle }}</a></h4>
         </nav>
         <h2>{{ episode.title }}</h2>
         <div class=videocontainer>

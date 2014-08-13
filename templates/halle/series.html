@@ -1,5 +1,4 @@
-
-k{% extends "layout.html" %}
+{% extends "layout.html" %}
 {% block body %}
 
 <h2>{{ series.title }}</h2>
@@ -12,14 +11,17 @@ k{% extends "layout.html" %}
         {% endfor %}
 </div>
 
-<table class=serieslist>
+<table class=searchresults>
         {% for ep in episodes %}
-    <tr>
-        <td style="border-left: 8px solid #{{ ep.seriescolor }}">
-        <a href="{{ url_for('episode', id=ep.id) }}"><img src="{{ (ep.img.get('p$
-        <td>{{ (ep['creator'] or [''])[0] }}</td>
-        <td><h3><a href="{{ url_for('episode', id=ep.id) }}">{{ ep.title }}</h3>$
-    </tr>
-    {% endfor %}
+        <tr>
+                <td style="border-left: 8px solid #{{ ep.seriescolor}}"><span><img
+                                src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [''])[0] }}" /></span></td>
+                <td>{{ (ep['creator'] or [''])[0] }}</td>
+                <td>{{ ep['date'] }}</td>
+                <td><a href="{{ url_for('episode', id=ep.id) }}"> {{ ep.title }}</a></td>
+        </tr>
+        {% else %}
+        <tr><td>No videos in this series yet.</td></tr>
+        {% endfor %}
 </table>
 {% endblock %}
