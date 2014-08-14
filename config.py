@@ -11,10 +11,17 @@
 
 # Specify the template to use for the portal.
 # Templates are located in the templates/<TEMPLATE> folder.
-TEMPLATE = 'basic-boxes'
+TEMPLATE = 'halle'
 
-SEARCH_SERVICE   = 'http://engage.opencast.org/search/'
-SECURITY_SERVICE = 'http://engage.opencast.org/j_spring_security_check'
+#SEARCH_SERVICE   = 'http://engage.opencast.org/search/'
+#SECURITY_SERVICE = 'http://engage.opencast.org/j_spring_security_check'
+
+SEARCH_SERVICE   = 'http://engage.matterhorn.uni-halle.de:8080/search/'
+SECURITY_SERVICE = 'http://engage.matterhorn.uni-halle.de:8080/j_spring_security_check'
+
+#SEARCH_SERVICE   = 'http://localhost:8080/search/'
+#SECURITY_SERVICE = 'http://localhost:8080/j_spring_security_check'
+
 
 # The amount of series per page to display on /serieslist
 SERIES_PER_PAGE  = 15
@@ -41,21 +48,25 @@ SEARCH_RESULTS_PER_PAGE = 9
 #             and not if the IDs might have changed.
 # Multiple plug-ins can be defined. In that case, the next plug-in is used if
 # one plug-in fails to construct the code.
-PLAYER_PLUGINS = ['simpleembed']
+PLAYER_PLUGINS = ['simpleengage']
 
 # Set this if ENGAGE_PLUGIN is set to simpleembed or simpleengage:
-ENGAGE_SERVICE   = 'http://engage.opencast.org/engage/'
+
+#ENGAGE_SERVICE   = 'http://engage.opencast.org/engage/'
+ENGAGE_SERVICE   = 'http://engage.matterhorn.uni-halle.de:8080/engage/'
+#ENGAGE_SERVICE   = 'http://localhost:8080/engage/'
 
 USE_MEMCACHD     = False
 MEMCACHED_HOST   = 'localhost:11211'
 CACHE_TIME_SEC   = 600
 
 # Series color generation
-SERIESCOLOR_PLUGIN        = 'sum'
+SERIESCOLOR_PLUGIN        = 'halle_facultycolors'
+#SERIESCOLOR_PLUGIN        = 'sum'
 SERIESCOLOR_SUM_MAX       = [100] * 3
 SERIESCOLOR_SUM_OFFSET    = [0] * 3
-SERIESCOLOR_SUM_USE_TITLE = False
-SERIESCOLOR_SUM_USE_ID    = True
+SERIESCOLOR_SUM_USE_TITLE = True # Works for contributor in halle_facultycolors
+SERIESCOLOR_SUM_USE_ID    = False
 
 # Configuration for built-in server only:
 SERVER_DEBUG = True

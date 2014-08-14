@@ -204,7 +204,11 @@ def prepare_episode(data):
 		contributor = [ c.childNodes[0].data 
 				for c in media.getElementsByTagNameNS('*', 'contributor') ]
 
-		color = seriescolor(series, seriestitle, app.config) if seriescolor else '000000'
+                if  app.config['SERIESCOLOR_PLUGIN'] == 'halle_facultycolors' and len(contributor) != 0:
+                        color = seriescolor(series, contributor[0], app.config) if seriescolor else '000000'
+
+                else:
+                        color = seriescolor(series, seriestitle, app.config) if seriescolor else '000000'
 
 		episodes.append( {'id':id, 'title':title, 'series':series,
 			'seriescolor':color,
@@ -243,7 +247,11 @@ def prepare_series(data):
 			if c.childNodes:
 				contributor.append( c.childNodes[0].data )
 
-		color = seriescolor(id, title, app.config) if seriescolor else '000000'
+                if  app.config['SERIESCOLOR_PLUGIN'] == 'halle_facultycolors' and len(contributor) != 0:
+                        color = seriescolor(id, contributor[0], app.config) if seriescolor else '000000'
+
+                else:
+                        color = seriescolor(id, title, app.config) if seriescolor else '000000'
 
 		series.append( {'id':id, 'title':title, 'creator':creator,
 			'color':color, 'date':date,
@@ -279,7 +287,11 @@ def prepare_series_precise(data,query=None,type=None):
 			if c.childNodes:
 				contributor.append( c.childNodes[0].data )
 
-		color = seriescolor(id, title, app.config) if seriescolor else '000000'
+
+                if  app.config['SERIESCOLOR_PLUGIN'] == 'halle_facultycolors' and len(contributor) != 0:
+                        color = seriescolor(id, contributor[0], app.config) if seriescolor else '000000'
+                else:
+                        color = seriescolor(id, title, app.config) if seriescolor else '000000'
 		
 		if type == 'creator':
 				if query.replace('&2B',' ') in creator:
@@ -587,3 +599,4 @@ if __name__ == '__main__':
 			host=(app.config.get('SERVER_HOST') or 'localhost'),
 			port=(app.config.get('SERVER_PORT') or 5000),
 			debug=app.config.get('SERVER_DEBUG'))
+
