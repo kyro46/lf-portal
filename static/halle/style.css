@@ -22,6 +22,12 @@ h3 {
 
 a {
 	text-decoration: none;
+	color: #000;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #6ca200;
 }
 
 .page {
@@ -165,20 +171,11 @@ a {
 }
 
 nav {
-	width: 50%;
+	width: 100%;
 	display: inline-block;
 	padding: 0px;
 	border-top: 2px solid #6ca200;
 	margin-bottom: 1em;
-	vertical-align: bottom;
-}
-
-.navleft {
-	width:60%;
-}
-
-.navright {
-	width:40%;
 }
 
 nav a {
@@ -189,6 +186,7 @@ nav a {
 	color: black;
 }
 
+
 nav a:first-child {
 	margin-left: 20px;	
 }
@@ -197,15 +195,53 @@ nav form {
 	display: inline-block;
 	padding: 0px 15px;
 	margin: 0px;
+	margin-left: 25%;
+	vertical-align: middle;
 }
 
-nav form input {
+input[type=text] {
 	margin: 2px 0px;
+	border: 1px solid #eaeaea;
+	padding: 3px;
+	box-shadow: inset 1px 1px 2px #A0A0A0;
+	cursor: pointer;
+	width: 150px;
+	
 }
 
-nav:nth-child(3) {
-	text-align: right;
+input[type=text]:active, input[type=text]:hover, input[type=text]:focus {
+	border: 1px solid #6ca200;
 }
+
+input[type=image]{
+	width: 25px;
+	vertical-align: middle;
+}
+/*
+input.ilMainMenuSearch {
+cursor: pointer;
+border-style: solid;
+border-width: 0px;
+border-color: #eaeaea;
+color: #606060;
+width: 150px;
+padding: 2px 4px 0px;
+margin-bottom: 2px;
+margin-top: 1px;
+background-repeat: no-repeat;
+background-position: center right;
+background-color: #FFF;
+min-height: 16px;
+box-shadow: inset 1px 1px 2px #A0A0A0;
+line-height: 1;
+}
+input[type=text], input[type=file], input[type=password], textarea {
+border: 1px solid #787878;
+padding: 3px;
+text-decoration: none;
+font-size: 90%;
+}
+*/
 
 nav a:hover, 
 nav a:active{
@@ -316,6 +352,10 @@ footer a:hover {
 	background-color: #dddddd;
 }
 
+tr {
+	display: table-row;
+}
+
 .searchresults td {
 	padding: 10px;
 	font-size: smaller;
@@ -362,6 +402,10 @@ footer a:hover {
 }
 
 .serieslist td:nth-child(3) a h3:hover {
-	background: #FFF;
+	background-color: #dddddd;
 	color: #6ca200;
+}
+
+.serieslist tr:hover {
+	background-color: #dddddd;
 }
