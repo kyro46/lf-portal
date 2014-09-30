@@ -23,6 +23,6 @@ def seriescolor(id, contributor, config):
         if 't III' in contributor: return '368429' # Naturwiss. Fak. III
         if 'Naturwissenschaftliche Fakul' in contributor: return '2d7aab' # Naturwiss. Fak. I und II
         if 'Ingenieurwissenschaften' in contributor: return '627b86'
-        if 'LLZ' in contributor: return '2085A8'
+        if 'LLZ' in contributor: return '008aa3'
 
-	return '330033'
+        return '9bc34b'

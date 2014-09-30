@@ -336,7 +336,8 @@ def prepare_contributors(data):
 			continue	
 		for c in result.getElementsByTagNameNS('*', 'dcContributor'):
 			if c.childNodes:
-				contributor.append( { 'contributor':c.childNodes[0].data} )
+				contributor.append( { 'contributor':c.childNodes[0].data, 'color':seriescolor('', c.childNodes[0].data, '') if seriescolor else '000000' } )
+
 	contributorsNoDupes = []			
 	[contributorsNoDupes.append(i) for i in contributor if not contributorsNoDupes.count(i)]
 	return sorted(contributorsNoDupes)
@@ -418,8 +419,8 @@ def contributorlist(page=1):
 	'''
 	page -= 1
 
-	data = request_data('series', app.config['SERIES_PER_PAGE'], 
-			app.config['SERIES_PER_PAGE'] * page)
+	data = request_data('series', 9999, 
+			0)
 	total = len(data.getElementsByTagName('dcContributor'))
 	contributor = prepare_contributors(data)
 

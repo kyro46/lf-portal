@@ -5,7 +5,7 @@
 <table class=searchresults>
         {% for c in contributor %}
         <tr>
-                <td style="border-left: 8px solid #55FF00"><a href="{{ url_for('psearch', q=c.contributor.replace(' ','&2B'), t='contributor') }}"> {{ c.contributor }}</a></td>
+                <td style="border-left:  40px solid  #{{ c.color }};"><a href="{{ url_for('psearch', q=c.contributor.replace(' ','&2B'), t='contributor') }}"> {{ c.contributor }}</a></td>
         </tr>
         {% else %}
         <tr><td>No videos matching this query</td></tr>
