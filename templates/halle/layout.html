@@ -1,8 +1,18 @@
 <!doctype html>
 <html>
+<script type="text/javascript">
+function CheckInput () {
+
+	var showninput = document.getElementById("showninput");
+	var hiddeninput = document.getElementById("hiddeninput");
+
+	hiddeninput.value = showninput.value.replace(/ /g,"&2B");
+	return true;
+}
+</script>
 <body>
 
-<title>Halle-Video</title>
+<title>OpenLecture</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
         <a href="{{ url_for('home') }}"><h1><img src="{{ url_for('static', filename='titel.jpg') }}" width="980px" height="70px" border="0" alt="Open Lecture"></h1></a>
@@ -11,12 +21,12 @@
 			<a href="{{ url_for('serieslist', page=1) }}">Serien</a>
 			<a href="{{ url_for('creatorlist', page=1) }}">Dozenten</a>
 			<a href="{{ url_for('contributorlist', page=1) }}">Einrichtungen</a>
-
-	    <form method="GET" action="{{ url_for('search', page=1) }}">
-			<input type="search" placeholder="suche..." autofocus name="q"/>
-            <input type="image" alt="Senden" src="{{ url_for('static', filename='Suche.jpg') }}" /> 
-		</form>
-
+	
+	<form id="shownform" method="GET" action="{{ url_for('search', page=1) }}" onsubmit="CheckInput();">
+		<input id="showninput" type="search" placeholder="suche..." autofocus/>
+		<input id="hiddeninput" type="hidden" name="q"/>
+		<input type="image" alt="Senden" src="{{ url_for('static', filename='Suche.jpg') }}"/> 
+	</form>
 
                 {% if request.cookies.get('JSESSIONID') %}
                 <a href="{{ url_for('logout') }}">Abmelden</a>
