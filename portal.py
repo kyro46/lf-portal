@@ -404,8 +404,8 @@ def creatorlist(page=1):
 	'''
 	page -= 1
 
-	data = request_data('series', app.config['SERIES_PER_PAGE'], 
-			app.config['SERIES_PER_PAGE'] * page)
+	data = request_data('series', 9999, 
+			0)
 	total = len(data.getElementsByTagName('dcCreator'))
 	creators = prepare_creators(data)
 
