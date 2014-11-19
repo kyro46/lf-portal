@@ -4,7 +4,7 @@
 <ul class=episodes>
 	{% for ep in new_episodes %}
 	<li style="background-color: #{{ ep.seriescolor }};"><a href="{{ url_for('episode', id=ep.id) }}">
-		<span><img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [''])[0] }}" /></span>
+		<span><img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [ep.miscaudio])[0] }}" /></span>
 		<div>
 			<h3>{{ ep.title }}</h3>
 			<p>{{ ', '.join(ep.creator) }}</p>
@@ -20,7 +20,7 @@
 <ul class=episodes>
 	{% for ep in random_episodes %}
 	<li style="background-color: #{{ ep.seriescolor }};"><a href="{{ url_for('episode', id=ep.id) }}">
-		<span><img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [''])[0] }}" /></span>
+		<span><img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [ep.miscaudio])[0] }}" /></span>
 		<div>
 			<h3>{{ ep.title }}</h3>
 			<p>{{ ', '.join(ep.creator) }}</p>

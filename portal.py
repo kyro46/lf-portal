@@ -210,10 +210,13 @@ def prepare_episode(data):
                 else:
                         color = seriescolor(series, seriestitle, app.config) if seriescolor else '000000'
 
+		#workaround to show a sample-image for audio-only recordings
+		miscaudio = '%sui/img/misc/thumbnail.png' % app.config['ENGAGE_SERVICE']
+
 		episodes.append( {'id':id, 'title':title, 'series':series,
 			'seriescolor':color,
 			'seriestitle':seriestitle, 'img':img, 'player':player_html,
-			'creator':creator, 'contributor':contributor, 'date':date} )
+			'creator':creator, 'contributor':contributor, 'date':date, 'miscaudio':miscaudio} )
 		episodes.sort(key=lambda item:item['date'], reverse=True)
 	return episodes
 

@@ -17,7 +17,7 @@
 			<td style="border-left: 8px solid #{{ ep.seriescolor}}">
                 <span>
                 	<a href="{{ url_for('episode', id=ep.id) }}">
-                		<img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [''])[0] }}" />
+                		<img src="{{ (ep.img.get('presentation/player+preview') or ep.img.get('presenter/player+preview') or [ep.miscaudio])[0] }}" />
                 	</a>
                 </span>
 			</td>
