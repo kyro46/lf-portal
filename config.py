@@ -48,7 +48,7 @@ SEARCH_RESULTS_PER_PAGE = 9
 #             and not if the IDs might have changed.
 # Multiple plug-ins can be defined. In that case, the next plug-in is used if
 # one plug-in fails to construct the code.
-PLAYER_PLUGINS = ['simpleengage']
+PLAYER_PLUGINS = ['simpleembed']
 
 # Set this if ENGAGE_PLUGIN is set to simpleembed or simpleengage:
 
