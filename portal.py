@@ -231,8 +231,12 @@ def prepare_series(data):
 	for result in data.getElementsByTagNameNS('*', 'result'):
 		if get_xml_val(result, 'mediaType') != 'Series':
 			continue
+
 		id = result.getAttribute('id')
-		title       = get_xml_val(result, 'dcTitle')
+		epcounter = request_data('episode', app.config['SERIES_PER_PAGE'],0,sid=id )
+		eptotal = epcounter.getElementsByTagNameNS('*', 'search-results')[0].getAttribute('total')
+		
+		title = get_xml_val(result, 'dcTitle')
 		description = get_xml_val(result, 'dcDescription')
 		date        = ''
 		try:
@@ -256,9 +260,9 @@ def prepare_series(data):
                 else:
                         color = seriescolor(id, title, app.config) if seriescolor else '000000'
 
-		series.append( {'id':id, 'title':title, 'creator':creator,
-			'color':color, 'date':date,
-			'contributor':contributor} )
+		if (eptotal != "0"):
+			series.append( {'id':id, 'title':title, 'creator':creator,'color':color, 'date':date,'contributor':contributor,'eptotal':eptotal} )
+		
 	return series
 
 def prepare_series_precise(data,query=None,type=None):

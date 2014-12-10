@@ -5,7 +5,7 @@
 	{% for s in series %}
 	<li style="background-color: #{{ s.color }};">
 		<a href="{{ url_for('series', id=s.id) }}">
-			<h3>{{ s.title }}</h3>
+			<h3>{{ s.title }}</h3> {{s.eptotal}} Aufzeichnung(en)
 			<dl>
 				<dt>Dozent</dt>
 				<dd>{{ ', '.join(s.creator or []) }}
