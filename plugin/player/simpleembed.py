@@ -29,6 +29,6 @@ def player( media, config, request ):
 	session = (';jsessionid=%s' % session) if session else ''
 	embed   = '%sui/embed.html%s?id=%s' % (config['ENGAGE_SERVICE'], session, id)
 	engage  = '%sui/watch.html%s?id=%s' % (config['ENGAGE_SERVICE'], session, id)
-	html = '<iframe src="%s"></iframe>' % embed
+	html = '<iframe src="%s" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" height="400"></iframe>' % embed
 	data = {'engagelink' : engage}
 	return html, data
