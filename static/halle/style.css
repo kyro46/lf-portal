@@ -59,7 +59,7 @@ a:hover {
 
 .episodes li span {
 	display: inline-block;
-	width: 288px;
+	width: 290px;
 	height: 162px;
 	overflow: hidden;
 	padding: 0px;
@@ -70,7 +70,7 @@ a:hover {
 }
 
 .episodes li img {
-	width: 288px;
+	width: 290px;
 	margin: 0px;
 	padding: 0px;
 }
