@@ -592,6 +592,12 @@ def login():
 
 	return render_template('login.html')
 
+@app.route('/tutorial')
+def tutorial():
+        '''Render tutorial page:
+	Will display an image to explain the usage of the matterhorn player.
+        '''
+        return render_template('tutorial.html')
 
 @app.route('/logout')
 def logout():
@@ -607,13 +613,3 @@ if __name__ == '__main__':
 			host=(app.config.get('SERVER_HOST') or 'localhost'),
 			port=(app.config.get('SERVER_PORT') or 5000),
 			debug=app.config.get('SERVER_DEBUG'))
-
-@app.route('/tutorial')
-def tutorial():
-        '''Render tutorial page:
-	Will display an image to explain the usage of the matterhorn player.
-        '''
-        return render_template('tutorial.html')
-
-
-
