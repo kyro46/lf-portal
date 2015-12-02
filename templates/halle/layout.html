@@ -27,12 +27,6 @@ function CheckInput () {
 		<input id="hiddeninput" type="hidden" name="q"/>
 		<input type="image" alt="Senden" src="{{ url_for('static', filename='Suche.jpg') }}"/> 
 	</form>
-
-                {% if request.cookies.get('JSESSIONID') %}
-                <a href="{{ url_for('logout') }}">Abmelden</a>
-                {% else %}
-                <a href="{{ url_for('login') }}">Anmelden</a>
-                {% endif %}
         </nav>
         {% for message in get_flashed_messages() %}
         <div class=flash>{{ message }}</div>
@@ -41,6 +35,11 @@ function CheckInput () {
 
         <footer>
         <a href="{{ url_for('tutorial') }}">Player Bedienungsanleitung</a> | <a href="https://blog.llz.uni-halle.de/impressum/" target="_blank">Impressum</a> | Powered by <a href="https://github.com/lkiesow/lf-portal">lf-portal</a>
+                {% if request.cookies.get('JSESSIONID') %}
+                <a href="{{ url_for('logout') }}"> | Abmelden</a>
+                {% else %}
+                <a href="{{ url_for('login') }}"> | Adminzugang</a>
+                {% endif %}
         </footer>
 </div>
 
